@@ -29,7 +29,8 @@ module.exports = async ({ markdownAST }, pluginOptions = {}) => {
       mjAPI.typeset({
         math: node.value,
         format: format,
-        html: true
+        html: true,
+        timeout: 20 * 60 * 1000,
       }, data => {
         if (!data.errors) {
           node.type = `html`
